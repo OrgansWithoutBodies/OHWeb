@@ -1,0 +1,6 @@
+[submodule "OHSigns"]
+	path = OHSigns
+	url = https://github.com/OrgansWithoutBodies/OHSigns
+[submodule "OHDock/OHDock"]
+	path = OHDock/OHDock
+	url = https://github.com/OrgansWithoutBodies/OHDock
