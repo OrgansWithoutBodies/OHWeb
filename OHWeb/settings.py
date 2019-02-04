@@ -34,6 +34,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'OHTruck',
     'OHSigns',
+           'OHSigns.OHWebInterface',
+            'OHSigns.OHSignRenderer',
     'OHScheduler',
     'OHDock',
 

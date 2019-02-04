@@ -1,4 +1,4 @@
-"""OHWeb URL Configuration
+"""OHWebSigns URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -17,13 +17,5 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/',include('rest_framework.urls')),
-    path('truck/',include('OHTruck.urls')),
-    path('schedule/',include('OHScheduler.urls')),
-    path('dock/',include('OHDock.urls')),
-    path('',include('OHDock.urls')),
-   
-  #  path('site/',include('OHSite.urls')), 
-    path('signs/',include('OHSigns.urls')),
+  #  path('',include('OHSigns.OHWebInterface.urls'))
 ]

@@ -1,6 +1,6 @@
+[submodule "OHDock/vue-dock"]
+	path = OHDock/vue-dock
+	url = https://github.com/organswithoutbodies/ohdock
 [submodule "OHSigns"]
 	path = OHSigns
-	url = https://github.com/OrgansWithoutBodies/OHSigns
-[submodule "OHDock/OHDock"]
-	path = OHDock/OHDock
-	url = https://github.com/OrgansWithoutBodies/OHDock
+	url = http://github.com/OrgansWithoutBodies/OHSigns
