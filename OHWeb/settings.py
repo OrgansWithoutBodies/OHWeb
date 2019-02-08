@@ -27,11 +27,7 @@ SECRET_KEY = 'hlsyfo*gbi2!=zee!(cl8s#*a0&(l+(+3)!_sr5@#^i&m4trul'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['localhost',
-
-'vsipaddress.com','oh.vsipaddress.com',
-
-'vizsrv.net']
+ALLOWED_HOSTS = ['localhost','vsipaddress.com','oh.vsipaddress.com','vizsrv.net']
 
 
 # Application definition
