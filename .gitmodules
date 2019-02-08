@@ -4,3 +4,6 @@
 [submodule "OHSigns"]
 	path = OHSigns
 	url = http://github.com/OrgansWithoutBodies/OHSigns
+[submodule "OHSite"]
+	path = OHSite
+	url = http://github.com/organswithoutbodies/OHSite
