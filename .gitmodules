@@ -7,3 +7,6 @@
 [submodule "OHSite"]
 	path = OHSite
 	url = http://github.com/organswithoutbodies/OHSite
+[submodule "OHTruck/vue-truck"]
+	path = OHTruck/vue-truck
+	url = http://github.com/organswithoutbodies/OHPickupAdmin
