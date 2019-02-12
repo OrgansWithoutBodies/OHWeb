@@ -1,0 +1,14 @@
+<template>   
+<div>
+<div v-show="x.edit==false"><label @dblclick = "x.edit = true">{{t.title}} Team</label></div>  
+            <input v-show="t.edit==true" v-model="t.title"  v-on:blur= "t.edit=false; $emit('update')"
+          @keyup.enter = "t.edit=false; $emit('update')" @keyup.esc = "t.edit=false; $emit('update')"></input> 
+</div>
+</template>
+
+<script>
+
+</script>
+
+<style>
+</style>
