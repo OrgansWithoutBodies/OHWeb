@@ -39,6 +39,7 @@ INSTALLED_APPS = [
             'OHSigns.OHSignRenderer',
     'OHScheduler',
     'OHDock',
+    'OHBokeh',
 
     'rest_framework',
 

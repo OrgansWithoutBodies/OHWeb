@@ -27,3 +27,4 @@ class DonorSerializer(serializers.ModelSerializer):
         print(validated_data)
         return Donor.objects.create(**validated_data)
 
+    

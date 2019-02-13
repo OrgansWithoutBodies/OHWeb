@@ -22,6 +22,7 @@ urlpatterns = [
     path('truck/',include('OHTruck.urls')),
     path('schedule/',include('OHScheduler.urls')),
     path('dock/',include('OHDock.urls')),
+    path('bokeh/',include('OHBokeh.urls')),
     path('',include('OHDock.urls')),
    
   #  path('site/',include('OHSite.urls')), 
