@@ -20,6 +20,14 @@ class TripSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trip
         fields = '__all__'
+class StopSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Stop
+        fields = '__all__'
+class TruckSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Truck
+        fields = '__all__'
 
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:

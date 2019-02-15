@@ -70,23 +70,23 @@ class Stop(models.Model):
 ###
 
 class Donor(models.Model):
-	Firstname=models.CharField(max_length=25)
-	Lastname=models.CharField(max_length=25)
-	Address=models.CharField(max_length=100)
+	Firstname=models.CharField(max_length=25,help_text="Donor's First Name")
+	Lastname=models.CharField(max_length=25,help_text="Donor's Last Name")
+	Address=models.CharField(max_length=100,help_text="Item Location")
 	Phone=models.CharField(max_length=15)
 
 	Email=models.EmailField(blank=True)
 	Business=models.CharField(blank=True,max_length=30)
 
-	OtherInfo=models.TextField(blank=True)
+	OtherInfo=models.TextField(blank=True,help_text="Any other info that might be helpful")
 class Donation(models.Model):
 	Timestamp=models.DateTimeField()
 	StopId=models.ForeignKey('Stop',on_delete=models.SET_NULL,blank=True,null=True)
-class RequestedDonation(models.Model):#@todo child obj of Donation
+class RequestedDonation(Donation):#@todo child obj of Donation
 	LOCATIONS=[("OUT","Outside location of residence (clearly marked)"),("INF","Inside residence (first floor/garage)"),("INU","Inside residence (upper floor)")]
 	Items=models.TextField()
-	ItemLocation=models.CharField(max_length=3,choices=LOCATIONS)
-class TakenDonation(models.Model):
+	ItemLocation=models.CharField(max_length=3,choices=LOCATIONS,help_text="Where items are located/should be delivered to")
+class TakenDonation(Donation):
 	Items=models.TextField()
 	DumpFee=models.IntegerField(default=0)
 ###
@@ -96,6 +96,7 @@ class Truck(models.Model):
 	LicensePlate=models.CharField(max_length=20)
 	Capacity=models.CharField(max_length=10)
 	Status=models.CharField(max_length=30)
+	CabSpots=models.IntegerField(default=2)
 	GasCapacity=models.DecimalField(max_digits=6,decimal_places=2)
 class TruckAttachment(models.Model):
 	AttachedTo=models.ForeignKey('Truck',on_delete=models.SET_NULL,blank=True,null=True)

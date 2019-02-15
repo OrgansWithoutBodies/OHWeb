@@ -13,3 +13,9 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 class DonationViewSet(viewsets.ModelViewSet):
     queryset = Donation.objects.all()
     serializer_class = DonationSerializer
+class TruckViewSet(viewsets.ModelViewSet):
+    queryset = Truck.objects.all()
+    serializer_class = TruckSerializer
+class StopViewSet(viewsets.ModelViewSet):
+    queryset = Stop.objects.all()
+    serializer_class = StopSerializer

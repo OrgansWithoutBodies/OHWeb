@@ -1,4 +1,4 @@
-#@TODO - integrate with OHSigns for deliveries
+ #@TODO - integrate with OHSigns for deliveries
 from django import forms
 from django.forms import formset_factory
 
@@ -15,11 +15,11 @@ class DonorForm(forms.ModelForm):
 class StopForm(forms.ModelForm):
   class Meta:
     model=Stop
-    fields='__all__'
+    fields=['StopType',]
 class RequestedDonationForm(forms.ModelForm):
   class Meta:
     model=RequestedDonation
-    fields='__all__'
+    fields=['Items',"ItemLocation"]
 # opts=(('OLDSOLD-FRONT','Old Sold Sign - Front'),
 #       ('OLDSOLD-BACK','Old Sold Sign - Back'),
 #       ('NEWSOLD','New Sold Sign'),
