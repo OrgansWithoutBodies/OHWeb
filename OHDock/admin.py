@@ -13,5 +13,7 @@ class DonorAdmin(admin.ModelAdmin):
 #Model Registration - what models are accessible from admin page
 # admin.site.register(Event,EventAdmin)
 admin.site.register(Donor,DonorAdmin)
+admin.site.register(Donation)
+admin.site.register(DonationCategory)
 # admin.site.register(Sponsor,SponsorAdmin)
 # admin.site.register(Pickup)

@@ -6,4 +6,5 @@ class CorsMiddleware(object):
         print('test')
         response=self.get_response(request)
         response["Access-Control-Allow-Origin"] = "*"
+        #response["Access-Control-Allow-Origin"] = "http://localhost:8080/"
         return response

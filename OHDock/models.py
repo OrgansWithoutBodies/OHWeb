@@ -20,19 +20,29 @@ class Donor(models.Model):
 	Phone=models.CharField(max_length=15,blank=True)
 	Email=models.EmailField(blank=True)
 	Business=models.CharField(blank=True,max_length=30)
-
+	def __str__(self):
+		if self.Phone!='':
+			phonestr=' ('+self.Phone+') '
+		else:
+			phonestr=''
+		return self.Lastname+', '+self.Firstname+phonestr
 class Donation(models.Model):
 	Timestamp=models.DateTimeField()
+	DonorId=models.ForeignKey('Donor',on_delete='SET_NULL',null=True,blank=True)
+	DumpFee=models.IntegerField(default=0)
 
-
-
-class DonationCategories(models.Model):
+class DonationCategory(models.Model):
 	Name=models.CharField(max_length=20)
+	class Meta:
+		verbose_name_plural = "Donation Categories"
+	def __str__(self):
+		return self.Name
 
+class DonationLines(models.Model):
+	Donation=models.ForeignKey('Donation',on_delete="SET_NULL",null=True,blank=True)
+	Category=models.ForeignKey('DonationCategory',on_delete="SET_NULL",null=True,blank=True)
+	Quantity=models.IntegerField()
 
-
-# class DonationLines(models.Model):
-# 	id=models.xField()
 
 
 # class CategoryMaps(models.Model):
