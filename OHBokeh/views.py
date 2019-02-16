@@ -5,7 +5,7 @@ from bokeh.embed import server_session,server_document
 
 # Create your views here.
 
-
+#@TODO - heatmap of houses visited as holoviews objs - geoviews 
 def bokehview(request):
  #   with pull_session(url="http://localhost:5006/sliders") as session:
 #

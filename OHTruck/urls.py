@@ -18,6 +18,7 @@ urlpatterns = [
     #path('', admin.site.urls),
     
     path('', truckadmin),
+    path('geo/<rawStr>/',geocode),
     path('min/',mintriptime),
     path('request/',requestPickup),
 	path('api/',include(router.urls)),    
