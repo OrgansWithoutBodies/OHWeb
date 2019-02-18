@@ -96,7 +96,7 @@ class Truck(models.Model):
 	LicensePlate=models.CharField(max_length=20)
 	Capacity=models.CharField(max_length=10)
 	Status=models.CharField(max_length=30)
-	CabSpots=models.IntegerField(default=2)
+	CabSpots=models.IntegerField(default=2,help_text="Max number of Employees who can fit in cab")
 	GasCapacity=models.DecimalField(max_digits=6,decimal_places=2)
 class TruckAttachment(models.Model):
 	AttachedTo=models.ForeignKey('Truck',on_delete=models.SET_NULL,blank=True,null=True)

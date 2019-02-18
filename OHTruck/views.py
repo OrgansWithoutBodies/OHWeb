@@ -11,6 +11,8 @@ from .forms import *
 from .searchers import *
 # Create your views here.
 strcache={}
+OHLatLon=38.353184, -121.975337
+testadds=['793 Gold Coast Dr','626 Diablo Ct','615 Renaissance Ave']
 def parseAddress(rawStr):
 
 	spacedAdd=' '.join([word for word in rawStr.split('_')])
@@ -22,24 +24,28 @@ def geocode(request,rawStr,*arg,**kw):
 	strAddress=parseAddress(rawStr)
 	if strAddress in strcache.keys():#checks if address has already been geocoded - reduces api load
 		latlon=strcache[strAddress]
-		print(strcache)
+		
 	else:
 		gcoder=Nom()
-		print(strAddress)
-
+		
 		try:
 			code=gcoder.geocode(strAddress)
-			latlon={'lat':code.latitude,'lon':code.longitude}
+			latlon={'lat':code.latitude,'lng':code.longitude}
 		except:
 			print('couldnt resolve '+strAddress)
-			latlon={'lat':null,'lon':null}
+			latlon={'lat':null,'lng':null}
 		strcache[strAddress]=latlon
 	return JsonResponse({strAddress:latlon})
 
-def mintriptime(request,stops=[],backend="GM"):
-
+def mintriptime(request,stopStr='',backend="GM"):
+	stops=[[float(l) for l in s.split(',')] for s in stopStr.split(';')]
 	
-	greedySearcher(salesstops,)
+	print(stops)
+	time=greedySearcher(stops,osrmMetric).currentRoute
+
+	content={
+		'mintime':time
+	}
 	return JsonResponse(content)
 def truckadmin(request):
 	context={
