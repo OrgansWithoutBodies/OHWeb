@@ -11,7 +11,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 class DonationViewSet(viewsets.ModelViewSet):
-    queryset = Donation.objects.all()
+    queryset = RequestedDonation.objects.all()
     serializer_class = DonationSerializer
 class TruckViewSet(viewsets.ModelViewSet):
     queryset = Truck.objects.all()

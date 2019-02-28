@@ -1,0 +1,5 @@
+Implement Dask in cluster
+Searcher
+	Genetic Algorithm 
+		Fitness Proportion Selection - ' The fitness of each individual relative to the population is used to assign a probability of selection. Think of this as the fitness-weighted probability of being selected.'
+	TSP

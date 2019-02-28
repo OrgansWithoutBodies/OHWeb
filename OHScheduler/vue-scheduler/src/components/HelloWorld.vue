@@ -64,6 +64,7 @@
 </template>
 
 <script>
+//@TODO - have draggable employees
 import EmployeeShiftsCard from './EmployeeShiftsCard'
 import DailyView from './DailyView'
 import VueTimepicker from 'vue2-timepicker'

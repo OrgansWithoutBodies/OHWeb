@@ -13,3 +13,6 @@ from .models import *
 # #Model Registration - what models are accessible from admin page
 # # admin.site.register(Event,EventAdmin)
 # admin.site.register(Donor,DonorAdmin)
+
+
+admin.site.register(Employee)

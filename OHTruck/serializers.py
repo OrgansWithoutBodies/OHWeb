@@ -30,11 +30,13 @@ class TruckSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class EmployeeSerializer(serializers.ModelSerializer):
+    Firstname=serializers.CharField()
+    Lastname=serializers.CharField()
     class Meta:
         model = Employee
         fields = '__all__'
 
 class DonationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Donation
+        model = RequestedDonation
         fields = '__all__'

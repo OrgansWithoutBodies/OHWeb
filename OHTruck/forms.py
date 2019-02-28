@@ -16,6 +16,7 @@ class StopForm(forms.ModelForm):
   class Meta:
     model=Stop
     fields=['StopType',]
+    
 class RequestedDonationForm(forms.ModelForm):
   class Meta:
     model=RequestedDonation

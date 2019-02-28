@@ -13,7 +13,7 @@ class DonorAdmin(admin.ModelAdmin):
 #Model Registration - what models are accessible from admin page
 # admin.site.register(Event,EventAdmin)
 admin.site.register(Donor,DonorAdmin)
-admin.site.register(Donation)
+admin.site.register(RequestedDonation)
 admin.site.register(Trip)
 admin.site.register(Stop)
 admin.site.register(Employee)
