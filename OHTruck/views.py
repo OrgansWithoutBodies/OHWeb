@@ -74,7 +74,7 @@ def requestPickup(request):
         if stp.is_valid() & dnr.is_valid() & don.is_valid():
             print(dnr.cleaned_data)
             d=dnr.cleaned_data
-            ds=Donor.objects.filter(Firstname__exact=d['Firstname'],Lastname__exact=d['Lastname'])
+            ds=Donor.objects.filter(Firstname__exact=d['Firstname'],Lastname__exact=d['Lastname'],Address__exact=d['Address'])
             if len(ds)==0:
                 dnrobj=Donor.objects.create(**dnr.cleaned_data)
             else:
