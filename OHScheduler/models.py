@@ -5,7 +5,6 @@ class Employee(models.Model):
 	AuthUser=models.OneToOneField(get_user_model(),on_delete=models.CASCADE,primary_key=True,related_name="schedemp",help_text="Django 'User' object used for authorization - if adding new must press + button then edit button to input first&last name") #auth'd user using django's built-in authentication instead of reinventing the wheel - https://docs.djangoproject.com/en/2.1/topics/auth/customizing/#referencing-the-user-model
 	Nickname=models.CharField(max_length=10,blank=True)
 	# print(AuthUser.first_name)
-	print(get_user_model().objects.all())
 	# Firstname=AuthUser.first_name
 	# Lastname=AuthUser.last_name
 	@property

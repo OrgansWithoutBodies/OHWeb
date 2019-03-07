@@ -17,7 +17,6 @@ def baseview(request):
 @login_required
 @user_passes_test(is_emp)
 def employeeview(request):
-	print('testing')
 	user=request.user
 	# shifts=ScheduledShift.objects.get(EmployeeID=user)#@TODO - make sure it gets referenced user id
 	context={'user':user}

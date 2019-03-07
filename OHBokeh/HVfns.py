@@ -70,6 +70,7 @@ Node=object
 
 
 ddir=r'/home/v/Projects/Opportunity House Projects/OLD/Data'#@
+testdb=os.path.join('/','home','v','Projects','Opportunity House Projects','OHSuite','Data','transactions.db')
 dpath=os.path.join(ddir,'donations.db')
 tpath=os.path.join(ddir,'transactions.db')
 spath=os.path.join(ddir,'schedules.db')
@@ -196,20 +197,20 @@ sqlstrs={tpath:{'DBColumns':{'itemdesc':'Itemdesc',
                              'DiscountAmt':'Discount Amount',
                              'Discounts.Name':'Discount Name',
                              'Customers.Name':'Customer',
-                             'Purchases.timestamp':'timestamp',
+                             'Transactions.timestamp':'timestamp',
                              'Employees.Name':'Cashier'},
-                    'From':'PurchaseLines',
-                    'Joins':{'Purchases':'Purchases.ID=PurchaseLines.PurchaseID',
-                             'Customers':'Customers.ID=Purchases.CustomerID',
-                             'Employees':'Employees.ID=Purchases.CashierID',
-                             'Discounts' :'Discounts.ID=PurchaseLines.DiscountID'}
+                    'From':'TransactionLines',
+                    'Joins':{'Transactions':'Transactions.ID=TransactionLines.TransactionID',
+                             'Customers':'Customers.ID=Transactions.CustomerID',
+                             'Employees':'Employees.ID=Transactions.CashierID',
+                             'Discounts' :'Discounts.ID=TransactionLines.DiscountID'}
                 },# 'categorymap.name'/'donationcategories.name':'item',#@todo have a way to include this choice
         dpath:{'DBColumns':{'donationid':'donation',
                  'quantity':'amt',
                  'timestamp':'date',
                  'Discounts.Name':'donor',
                  'Customers.Name':'Customer',
-                 'Purchases.timestamp':'timestamp',
+                 'Transactions.timestamp':'timestamp',
                  'Employees.Name':'Cashier'},
         'From':'DonationLines',
         'Joins':{'Donors':'Donors.ID=Donations.DonorID',
@@ -243,14 +244,14 @@ def getsqldata(pathname,tbldict,N=-1,dmapcats=True,nameformat="lastname||', '||f
     return d
 def gettransdata():#@todo joins with item categories right
     
-     sqlquery="""SELECT itemdesc,Barcode,Quantity,DiscountAmt,Customers.Name, Purchases.timestamp, Discounts.Name, Employees.Name
-                    FROM PurchaseLines 
-                        JOIN Purchases ON Purchases.ID=PurchaseLines.PurchaseID
-                        JOIN Customers ON Customers.ID=Purchases.CustomerID
-                        JOIN Employees ON Employees.ID=Purchases.CashierID 
-                        JOIN Discounts ON Discounts.ID=PurchaseLines.DiscountID"""
-     c=sql.connect(tpath)
-     data=pd.DataFrame(c.execute(sqlquery).fetchall(),columns=['Itemdesc','Barcode','Quantity','Discount Amount','Customer','Timestamp','Discount Name','Cashier'])
+     sqlquery="""SELECT CompoundPrice,Barcode,Quantity,Customers.Name, Transactions.Timestamp, DiscountValue,Discounts.Name, Employees.Name
+                    FROM TransactionLines 
+                        JOIN Transactions ON Transactions.ID=TransactionLines.TransactionID
+                        JOIN Customers ON Customers.ID=Transactions.CustomerID
+                        JOIN Employees ON Employees.ID=Transactions.CashierID 
+                        JOIN Discounts ON Discounts.ID=TransactionLines.DiscountID"""
+     c=sql.connect(testdb)
+     data=pd.DataFrame(c.execute(sqlquery).fetchall(),columns=['Compound Price','Barcode','Quantity','Customer','Timestamp','Discount Value','Discount Name','Cashier'])
      c.close()
      return data
 def getdata(N=-1,mapcats=True,nameformat="lastname||', '||firstname"):
@@ -307,11 +308,11 @@ def makehv(data=None,basedims=None,sliderdims=None,overlaydims=None,histdims=Non
 #        print(vdims)
         
         h=hv.HoloMap(tbl.to(graphtype,kdims=basedims,vdims=sliderdims,groupby=sliderdims))
-        if tab & pn_available:
+        if tab:
 #            h=pnTableTab(tbl,graphtype=graphtype,kdims=basedims,vdims=sliderdims,groupby=sliderdims)
             
-            t=pnTableTab(tbl,h,graphtype.__name__)
-            print(t)
+#            t=pnTableTab(tbl,h,graphtype.__name__)
+#            print(t)
             return h
         
         if dshade:
@@ -358,7 +359,8 @@ def makehv(data=None,basedims=None,sliderdims=None,overlaydims=None,histdims=Non
         HVServer(finalh,rendertype)
 #        doc.title='test server'
     else:
-        hv.renderer(rendertype).save(h,graphpath+r'\test')
+        return(finalh)
+#        hv.renderer(rendertype).save(h,graphpath+r'\test')
 #    elif rendertype=='matplotlib':
 #        pass#just return a png/pdf/smth
 #    
@@ -414,4 +416,3 @@ class HVStyleNode(Node):
                 'cmap':None,
                 }
 #with a given dict of values
-defaultgraphs()
