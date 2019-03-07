@@ -21,7 +21,8 @@ urlpatterns = [
     path('', truckadmin),
     path('geo/<rawStr>/',geocode),
     path(r'min/<stopStr>/',mintriptime),
-    path('request/',requestPickup),
+    path('request/',requestPickup,name="request"),
+    path('request/submit',requestPickup),
 	path('api/',include(router.urls)),    
    # path('signs/',include('OHSigns.OHWebSigns.urls')),
 ]

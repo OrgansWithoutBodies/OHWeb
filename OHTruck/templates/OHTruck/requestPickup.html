@@ -1,13 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="{% static 'OHTruck/req.css' %}">
 	<title></title>
 </head>
 <body>
-{{stoptype}}
----<p/>
-{{donor}}
----<p/>
-{{reqdon}}
+<form action="submit" method="post">
+	{%csrf_token%}
+	{%for field in stoptype%}
+	<div class="formfield">
+		{{field.errors}}
+		<div class="formlbl">
+			{{field.label_tag}}
+		</div>
+		{{field}}
+	</div>
+	{%endfor%}
+	<p>---<p/>
+	{%for field in donor%}
+	<div class="formfield">
+		{{field.errors}}
+		<div class="formlbl">
+			{{field.label_tag}}
+		</div>
+		{{field}}
+	</div>
+	{%endfor%}
+	<p>---<p/>
+	{%for field in reqdon%}
+	<div class="formfield">
+		{{field.errors}}<div class="formlbl">
+			{{field.label_tag}}
+		</div>
+		{{field}}
+	</div>
+	{%endfor%}
+	<p/>
+	<input type="submit" value="Add Stop">
+</form>
 </body>
 </html>

@@ -101,7 +101,7 @@ class Stop(models.Model):
 	StopType=models.CharField(max_length=2,choices=TYPES,blank=True)
 	
 	RequesterId=models.ForeignKey('Donor',on_delete=models.SET_NULL,blank=True,null=True)
-	RequestedTimeframe=models.DateTimeField(help_text="When would be best to complete this request")
+	RequestedTimestamp=models.DateTimeField(null=True,help_text="When Request was Submitted")
 	
 	ScheduledTrip=models.ForeignKey('Trip',on_delete=models.SET_NULL,blank=True,null=True)
 	ScheduledOrder=models.IntegerField(blank=True,null=True)
@@ -129,7 +129,7 @@ class Donation(models.Model):
 class RequestedDonation(Donation):#Have one for each item?
 	LOCATIONS=[("OUT","Outside location of residence (pickups clearly marked)"),("INF","Inside residence (first floor/garage)"),("INU","Inside residence (upper floor)")]
 
-	RequestedTimestamp=models.DateTimeField(null=True,help_text="When Request was Submitted")
+	RequestedTimeframe=models.DateTimeField(help_text="When would be best to complete this request",null=True)
 	
 	Items=models.TextField()
 	ItemLocation=models.CharField(max_length=3,choices=LOCATIONS,help_text="Where items are located/should be delivered to")
