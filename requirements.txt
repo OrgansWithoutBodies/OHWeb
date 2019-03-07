@@ -4,6 +4,7 @@ Django==2.1.5
 django-formtools==2.1
 django-rest-framework==0.1.0
 djangorestframework==3.9.1
+geopy
 gunicorn==19.9.0
 holoviews==1.11.2
 Jinja2==2.10
