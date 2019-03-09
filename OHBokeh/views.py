@@ -18,7 +18,7 @@ def bokehview(request):
  #       # use the script in the rendered page
   #      return render("embed.html"
 
-    script = server_session(url="http://104.248.72.142/app",session_id="django")
+    script = server_session(url="http://bk.vizsrv.net/app",session_id="django")
     
     context={
         'script':script

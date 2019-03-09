@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from .mapping import *
 # Create your models here.
 
 testdb={"trips":
@@ -120,6 +121,12 @@ class Donor(models.Model):
 	Business=models.CharField(blank=True,max_length=30)
 
 	OtherInfo=models.TextField(blank=True,help_text="Any other info that might be helpful in contacting you")
+	def Code(self):
+		return list(geocode(rawStr=self.Address).values())[0]
+	def Longitude(self):
+		return self.Code()['lng']
+	def Latitude(self):
+		return self.Code()['lat']
 	def __str__(self):
 		return self.Firstname+' '+self.Lastname
 class Donation(models.Model):
