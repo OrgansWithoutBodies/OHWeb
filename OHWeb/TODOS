@@ -4,7 +4,7 @@ DOCK
 	Vue POST to create/update
 	implement Receipt in OHSigns
 TRUCK
-	map fixed
+	map fix
 	numbers
 	Stop have "Save Stop Assignment" or smth show when different from saved version
 	Searcher
@@ -15,8 +15,11 @@ SCHED
 
 SIGNS
 	department signs
-		cable signs
+		Electronics:
+			cable signs
+			Computers
 	receipt(s)
+
 
 
 KUBE

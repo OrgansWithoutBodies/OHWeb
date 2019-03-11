@@ -59,13 +59,11 @@ class Employee(models.Model):
 	AuthUser=models.OneToOneField(get_user_model(),primary_key=True,on_delete=models.CASCADE,related_name="truckemp")
 	
 
-	@property
 	def Firstname(self):	
 		if self.AuthUser.first_name:
 			return self.AuthUser.first_name
 		else: return self.AuthUser.username
 
-	@property
 	def Lastname(self):	
 		return self.AuthUser.last_name
 

@@ -4,6 +4,8 @@ from .models import *
 
 
 class DonorSerializer(serializers.ModelSerializer):
+    Latitude=serializers.FloatField()
+    Longitude=serializers.FloatField()
     class Meta:
         model = Donor
         fields = '__all__'

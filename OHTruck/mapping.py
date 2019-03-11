@@ -30,7 +30,7 @@ def geocode(rawStr,*arg,**kw):
             latlon={'lat':null,'lng':null}
         codecache[strAddress]=latlon
     return {strAddress:latlon}
-def osrmTrip(points,stopStr=None,baseurl='http://osrm.vizsrv.net/'):
+def osrmTrip(points=None,stopStr=None,baseurl='http://osrm.vizsrv.net/'):
     if stopStr is None:
         stopStr=';'.join([','.join([str(p[1]),str(p[0])]) for p in points])
     url=baseurl+'trip/v1/driving/'+stopStr+'?roundtrip=true&geometries=geojson'
