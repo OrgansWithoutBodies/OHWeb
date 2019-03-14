@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+from .views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
@@ -23,7 +23,13 @@ urlpatterns = [
     path('api/',include('rest_framework.urls')),
 
 
-    path('',include('OHWeb.OHLandingPage.urls')),
+    path('truck/',include('OHTruck.urls',namespace="TRUCK")),
+    path('schedule/',include('OHScheduler.urls',namespace="SCHED")),
+    path('dock/',include('OHDock.urls',namespace="DOCK")),
+    path('clock/',include('OHClock.urls',namespace="CLOCK")),
+    path('bokeh/',include('OHBokeh.urls',namespace="GRAPH")),
+    path('signs/',include('OHSigns.urls',namespace="SIGNS")),
+    path('',landingPage),
    
   #  path('site/',include('OHSite.urls')), 
 ]

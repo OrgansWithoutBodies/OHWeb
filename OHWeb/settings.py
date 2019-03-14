@@ -34,7 +34,6 @@ ALLOWED_HOSTS = ['localhost','vsipaddress.com','oh.vsipaddress.com','vizsrv.net'
 
 INSTALLED_APPS = [
     'OHWeb',
-    'OHWeb.OHLandingPage',
     'OHTruck',
     'OHSigns',
            'OHSigns.OHWebInterface',
