@@ -21,12 +21,14 @@ from django.views.generic import TemplateView
 from django.urls import path,include
 from .views import * 
 
+app_name="DOCK"
+
 router = routers.DefaultRouter()
 router.register(r'donors', DonorViewSet)
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="OHDock/index.html")),
+    path('', TemplateView.as_view(template_name="OHDock/index.html"),name="/"),
 	path('api/',include(router.urls)),    
 ]

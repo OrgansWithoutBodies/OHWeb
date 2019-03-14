@@ -1,0 +1,72 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/v/.nvm/v0.11.16/bin/node',
+1 verbose cli   '/home/v/.nvm/v0.11.16/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'vue-native-cli' ]
+2 info using npm@2.3.0
+3 info using node@v0.11.16
+4 silly cache add args [ 'vue-native-cli', null ]
+5 verbose cache add spec vue-native-cli
+6 silly cache add parsed spec { raw: 'vue-native-cli',
+6 silly cache add   scope: null,
+6 silly cache add   name: 'vue-native-cli',
+6 silly cache add   rawSpec: '',
+6 silly cache add   spec: '*',
+6 silly cache add   type: 'range' }
+7 verbose addNamed vue-native-cli@*
+8 silly addNamed semver.valid null
+9 silly addNamed semver.validRange *
+10 silly addNameRange { name: 'vue-native-cli', range: '*', hasData: false }
+11 silly mapToRegistry name vue-native-cli
+12 silly mapToRegistry using default registry
+13 silly mapToRegistry registry https://registry.npmjs.org/
+14 silly mapToRegistry uri https://registry.npmjs.org/vue-native-cli
+15 verbose addNameRange registry:https://registry.npmjs.org/vue-native-cli not in flight; fetching
+16 verbose request uri https://registry.npmjs.org/vue-native-cli
+17 verbose request no auth needed
+18 info attempt registry request try #1 at 12:42:52 AM
+19 verbose request id 940676e0518d03ed
+20 http request GET https://registry.npmjs.org/vue-native-cli
+21 http 200 https://registry.npmjs.org/vue-native-cli
+22 silly get cb [ 200,
+22 silly get   { date: 'Tue, 12 Mar 2019 07:42:52 GMT',
+22 silly get     'content-type': 'application/json',
+22 silly get     'transfer-encoding': 'chunked',
+22 silly get     connection: 'keep-alive',
+22 silly get     'set-cookie': [ '__cfduid=d08c17998aa112f7dfb93b74ea13832451552376572; expires=Wed, 11-Mar-20 07:42:52 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+22 silly get     'cf-cache-status': 'REVALIDATED',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     'cf-ray': '4b6422485ad96bec-SJC',
+22 silly get     etag: 'W/"91382076ff8f1b90a69b60aacafaf4ab"',
+22 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 silly get     'last-modified': 'Sat, 09 Feb 2019 06:25:00 GMT',
+22 silly get     vary: 'accept-encoding, accept',
+22 silly get     'x-amz-meta-rev': '28-4d5f14362f91aa8f29bc7f0fef8fd4ba',
+22 silly get     server: 'cloudflare',
+22 silly get     'content-encoding': 'gzip' } ]
+23 silly addNameRange number 2 { name: 'vue-native-cli', range: '*', hasData: true }
+24 silly addNameRange versions [ 'vue-native-cli', [] ]
+25 verbose stack Error: No compatible version found: vue-native-cli@'*'
+25 verbose stack No valid targets found.
+25 verbose stack Perhaps not compatible with your version of node?
+25 verbose stack     at installTargetsError (/home/v/.nvm/v0.11.16/lib/node_modules/npm/lib/cache/add-named.js:259:12)
+25 verbose stack     at next (/home/v/.nvm/v0.11.16/lib/node_modules/npm/lib/cache/add-named.js:238:17)
+25 verbose stack     at setData (/home/v/.nvm/v0.11.16/lib/node_modules/npm/lib/cache/add-named.js:215:5)
+25 verbose stack     at RES (/home/v/.nvm/v0.11.16/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+25 verbose stack     at f (/home/v/.nvm/v0.11.16/lib/node_modules/npm/node_modules/once/once.js:17:25)
+25 verbose stack     at saved (/home/v/.nvm/v0.11.16/lib/node_modules/npm/lib/cache/caching-client.js:169:7)
+25 verbose stack     at FSReqWrap.oncomplete (fs.js:99:15)
+26 verbose cwd /home/v/Projects/Opportunity House Projects/OHWeb/OHClock
+27 error Linux 4.15.0-42-generic
+28 error argv "/home/v/.nvm/v0.11.16/bin/node" "/home/v/.nvm/v0.11.16/bin/npm" "install" "-g" "vue-native-cli"
+29 error node v0.11.16
+30 error npm  v2.3.0
+31 error code ETARGET
+32 error notarget No compatible version found: vue-native-cli@'*'
+32 error notarget No valid targets found.
+32 error notarget Perhaps not compatible with your version of node?
+32 error notarget This is most likely not a problem with npm itself.
+32 error notarget In most cases you or one of your dependencies are requesting
+32 error notarget a package version that doesn't exist.
+33 verbose exit [ 1, true ]

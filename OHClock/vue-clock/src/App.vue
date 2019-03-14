@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <punch-clock msg="Welcome to Your Vue.js App"/>
+    <clock-client/>
+    <clock-admin/>
   </div>
 </template>
 
 <script>
-import PunchClock from './components/PunchClock.vue'
+import ClockClient from './components/Client/ClockClient.vue'
+import ClockAdmin from './components/Admin/ClockAdmin.vue'
 
 export default {
   name: 'app',
+  beforeCreate(){
+  this.$store.dispatch('loadData')
+  },
   components: {
-    PunchClock
+    ClockClient,
+    ClockAdmin
   }
 }
 </script>

@@ -10,9 +10,6 @@ from .models import *
 # # 	list_display=('sponsorname','sponsortype')
 # # 	list_filter=('sponsortype',)
 
-# #Model Registration - what models are accessible from admin page
-# # admin.site.register(Event,EventAdmin)
-# admin.site.register(Donor,DonorAdmin)
 
 
-admin.site.register(Employee)
+#admin.site.register(Employee)

@@ -21,12 +21,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 
     path('api/',include('rest_framework.urls')),
-    path('truck/',include('OHTruck.urls')),
-    path('schedule/',include('OHScheduler.urls')),
-    path('dock/',include('OHDock.urls')),
-    path('bokeh/',include('OHBokeh.urls')),
-    path('',include('OHTruck.urls')),
+
+
+    path('',include('OHWeb.OHLandingPage.urls')),
    
   #  path('site/',include('OHSite.urls')), 
-    path('signs/',include('OHSigns.urls')),
 ]

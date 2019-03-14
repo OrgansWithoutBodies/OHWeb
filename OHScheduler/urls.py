@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.contrib.auth import login
 from django.urls import path,include
 from .views import * 
+
+app_name="SCHED"
+
 urlpatterns = [
     path('',baseview),
 

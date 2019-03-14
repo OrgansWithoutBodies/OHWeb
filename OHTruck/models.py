@@ -74,7 +74,7 @@ class Employee(models.Model):
 				driverstr=" (DRIVER)" 
 			else:
 				driverstr= ""
-			return self.Firstname+driverstr
+			return self.Firstname()+driverstr
 		else:
 			return self.AuthUser
 
@@ -134,10 +134,10 @@ class Donation(models.Model):
 class RequestedDonation(Donation):#Have one for each item?
 	LOCATIONS=[("OUT","Outside location of residence (pickups clearly marked)"),("INF","Inside residence (first floor/garage)"),("INU","Inside residence (upper floor)")]
 
-	RequestedTimeframe=models.DateTimeField(help_text="When would be best to complete this request",null=True)
+	RequestedTimeframe=models.DateTimeField(help_text="When would be best to complete this request",blank=True,null=True)
 	
 	Items=models.TextField()
-	ItemLocation=models.CharField(max_length=3,choices=LOCATIONS,help_text="Where items are located/should be delivered to")
+	ItemLocation=models.CharField(max_length=3,choices=LOCATIONS,help_text="Where items are located/should be delivered to",blank=True,null=True)
 
 class TakenDonation(Donation):
 	ConfirmedTimestamp=models.DateTimeField(null=True)

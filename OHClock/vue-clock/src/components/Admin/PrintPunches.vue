@@ -1,17 +1,20 @@
 <template>
-  <div class="admin">
-	  <button>Add Employee</button>
-	  <button>Undo Punch</button>
-	  <button>Add Punch</button>
+  <div class="punches">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PunchAdmin',
+  name: 'PrintPunches',
   components:{},
   props: {
     msg: String
+  },
+  data(){
+  	return{
+  		'punches':this.$store.state.punches,
+  		'datetofrom':[]
+  	}
   }
 }
 </script>
