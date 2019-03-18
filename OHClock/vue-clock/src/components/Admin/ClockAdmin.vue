@@ -1,27 +1,28 @@
 <template>
   <div class="admin">
-  
-  <window-modal headertitle="Admin Authorization">
+  {{focus}}
+      <window-modal modalName="AuthModal" headertitle="Admin Authorization">
   <authorize-admin/>
   </window-modal>
   
-  <window-modal>
+  <window-modal modalName="AddEmpModal">
     <add-employee/>
   </window-modal>
-  <window-modal>
+  <window-modal modalName="EmpListModal">
     <employee-list/>
   </window-modal>
-    <window-modal>
+    <window-modal modalName="PrintPunchModal">
     <print-punches/>
 </window-modal>
   
-
+<!--
 	  <button>Add Employee</button>
     <button>Add Admin</button>
 <br>
     <button>Add Punch</button>
     <button>Edit Punch</button>
     <button>Remove Punch</button>
+    -->
   </div>
 </template>
 
@@ -37,6 +38,9 @@ export default {
   props: {
     msg: String
   }
+  ,data(){return{
+    focus:this.$store.state.focusedWind
+  }}
 }
 </script>
 

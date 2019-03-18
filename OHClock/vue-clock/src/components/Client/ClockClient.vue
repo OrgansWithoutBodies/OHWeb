@@ -1,5 +1,5 @@
 <template>
-<window-modal :headertitle="timeHeader()" class="wind">
+<window-modal :headertitle="timeHeader()" modalName="ClockModal" class="wind">
   <div class="client">
     <client-settings class="settings"/>
     <time-clock @time="setTime" :showsec="showsec" :markers="markers" class="clock"/>
@@ -64,7 +64,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .wind{
-  background-color:black;
 }
 .clock{
 grid-area:clock;

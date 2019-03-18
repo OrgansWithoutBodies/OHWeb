@@ -17,6 +17,7 @@ const store = new Vuex.Store({
      //'markers':['redtriangle','smallblackdot','smallblackdot','blackdot','smallblackdot','smallblackdot','blackdot','smallblackdot','smallblackdot','blackdot','smallblackdot','smallblackdot',],
      'showsec':true,
     },
+    focusedWind:null,
     admins:[],
     employees:[],
     punches:[],
@@ -55,6 +56,9 @@ const store = new Vuex.Store({
     },
     'SET_SETTINGS'(state,sets){
       state.settings=sets
+    },
+    'SET_FOCUS'(state,wind){
+      state.focusedWind=wind
     }
   },
 //
@@ -70,6 +74,9 @@ const store = new Vuex.Store({
   authenticateSession({commit}){},
 
   checkPass(){},
+  focusWind({commit},wind){
+      commit('SET_FOCUS',wind)
+  },
   loadData({commit},format="REST")  {
       if(format=="REST"){
         axios.get(dataep+'employees/')

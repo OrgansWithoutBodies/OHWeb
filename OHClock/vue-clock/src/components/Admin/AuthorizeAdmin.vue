@@ -24,7 +24,7 @@ export default {
 <style scoped lang="scss">
 .wrapper{
   background-color:red;
-  width:fit-content;
+  width:inherit;
   border-radius:10px;
   padding:10px;
   margin:10px;

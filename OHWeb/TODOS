@@ -26,6 +26,7 @@ TRUCK
 		
 SCHED
 TIMECLOCK
+	emulate different OSes
 	modals
 	Admin
 	hash passphrases

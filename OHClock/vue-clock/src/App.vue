@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <button @click="$modal.show('ClockModal')">Show Clock</button>
+    <button @click="$modal.show('AuthModal')">Show Admin</button>
+    <button @click="$modal.show('EmpListModal')">Show Emps</button>
+    <button @click="$modal.show('AddEmpModal')">Add Emp</button>
+    <button @click="$modal.show('PrintPunchModal')">Print Punches</button>
+    
     <clock-client/>
     <clock-admin/>
   </div>

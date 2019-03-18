@@ -1,34 +1,67 @@
 <template>
-<div class="windowwrapper">
-  <div class="headerpane">
+<modal :name="modalName" classes="test" :draggable="true"  :class="{active:focusedWind==modalName,inactive:focusedWind!=modalName}" :adaptive="true" :clickToClose="false"  height="auto" class="windowwrapper">
+  <div class="headerpane" @click="focusIn">
     <div class="headertitle">
     {{headertitle}}
     </div>
-    <div class="btnwrapper">
+    <div class="btnwrapper" slot="top-right">
       <button>_</button><button>□</button>
-      <button class="xbutton">X</button>
+      <button @click="$modal.hide(modalName)" class="xbutton">X</button>
     </div>
   </div>
-  <div class="windpane">
+  <div class="windpane" @click="focusIn">
 <slot class="slot"></slot>
 </div>
-</div>
+</modal>
 </template>
 <script>
 //https://stackoverflow.com/questions/4375255/windows-os-button-style-css
 //https://openclipart.org/detail/169031/windows-7-window-buttons
 export default{
 	name:'WindowModal',
+  computed:{
+    focusedWind:{
+      get:function(){return this.$store.state.focusedWind},
+      set:function(wind){this.$store.dispatch('focusWind',wind)}
+    }
+  },
   props:{
   "headertitle":{
-
-  }
   },
+  "modalName":{}
+  },
+  methods:{
+  focusIn:function(){
+  this.focusedWind=this.modalName
+  },
+  },
+  data(){
+  return{
+    z:1000,
+    focus:false
+  }
+  }
 }
 </script>
 <style scoped>
+.active{
+  z-index:1000 !important;
+}
+.v--modal-overlay {
+  background: transparent;
+}
+.inactive{
+  z-index:999 !important;
+}
+.test{
+  background:green
+}
+.headertitle{
+  justify-self:start;
+}
 .windpane{
   border:3px solid gray;
+  background-color:black;
 }
 .headerpane{
 padding:7px;
@@ -52,7 +85,7 @@ grid-template-columns:1fr 1fr;
 --btn-glow_click:#0f95af;
 --btn-shine_click:#2cb1ea;
 --btn-bg_click:#259dd1;
-
+z-index:9999;
 width:fit-content;
 padding:5px;
 }
@@ -109,6 +142,7 @@ button:not(:last-child) {
   border-right: none;
 }
 .btnwrapper {
+justify-self:end;
    cursor:pointer;
    letter-spacing:1px;
    font-size:12px;
